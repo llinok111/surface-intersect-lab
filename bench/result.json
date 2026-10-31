@@ -1,0 +1,49 @@
+{
+  "direction": "three-d",
+  "scene": "tilted rippled terrain vs tilted plane, 3200+3200 tris",
+  "totalPairs": 10240000,
+  "samples": 9,
+  "aabb": {
+    "min": 76.495194,
+    "median": 78.45527,
+    "p95": 79.720632,
+    "stddev": 1.1194026858136836,
+    "mean": 78.22353266666666,
+    "n": 9,
+    "relativeStddev": 0.014310305961043535,
+    "coldStartMs": 77.644699,
+    "candidatePairs": 3064,
+    "trueSegments": 296
+  },
+  "obb": {
+    "min": 1687.188869,
+    "median": 1744.916953,
+    "p95": 1780.247461,
+    "stddev": 30.635073648978768,
+    "mean": 1736.1210326666665,
+    "n": 9,
+    "relativeStddev": 0.01764570157987405,
+    "coldStartMs": 1771.921,
+    "candidatePairs": 2752,
+    "trueSegments": 296
+  },
+  "bruteForce": {
+    "min": 663.496027,
+    "median": 668.011574,
+    "p95": 684.6066,
+    "stddev": 8.045503368502741,
+    "mean": 671.4043704444445,
+    "n": 9,
+    "relativeStddev": 0.01198309651034431,
+    "coldStartMs": 672.697769,
+    "candidatePairs": 10240000,
+    "trueSegments": 296
+  },
+  "observations": {
+    "aabbPruneRatio": 0.99970078125,
+    "obbPruneRatio": 0.99973125,
+    "obbVsAabbCandidates": 1.1133720930232558,
+    "bitIdenticalToBruteForce": true
+  },
+  "generatedAt": "2026-11-01 (deterministic scene)"
+}

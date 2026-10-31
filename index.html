@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>surface-intersect-lab — sound broadphase for surface intersection</title>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<style>
+  html, body { margin: 0; height: 100%; font-family: ui-monospace, monospace; background: #0d1117; color: #e6edf3; }
+  #app { position: fixed; inset: 0; }
+  #panel {
+    position: absolute; top: 12px; left: 12px; z-index: 10;
+    background: rgba(13,17,23,0.92); border: 1px solid #30363d; border-radius: 8px;
+    padding: 12px 16px; max-width: 340px; font-size: 12px; line-height: 1.5;
+  }
+  #panel h1 { font-size: 14px; margin: 0 0 4px; color: #58a6ff; }
+  #panel p { margin: 2px 0; }
+  #panel .num { color: #7ee787; font-weight: 700; }
+  #panel .dim { color: #8b949e; }
+  #panel select { background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 4px; padding: 3px 6px; }
+  #panel label { color: #d29922; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="panel">
+  <h1>surface-intersect-lab</h1>
+  <p class="dim">Two analytic surfaces (tilted rippled terrain × tilt plane). The intersection curve is computed inside the same pure <code>src/core.mjs</code> that the node bench runs — so what you see here is exactly what <code>bench/verify.mjs</code> asserts.</p>
+  <p><label>broadphase:</label>
+    <select id="kind">
+      <option value="aabb" selected>AABB</option>
+      <option value="obb">OBB (tight)</option>
+      <option value="naive">none (brute force)</option>
+    </select>
+  </p>
+  <p>tri-tri pairs: <span class="num" id="total">—</span></p>
+  <p>exact tests after broadphase: <span class="num" id="cand">—</span>
+    <span class="dim">(<span id="reduction">—</span>% pruned)</span></p>
+  <p>intersection segments: <span class="num" id="segs">—</span></p>
+  <p class="dim">bit-identical to brute force on this scene:
+    <span class="num" id="identical">—</span></p>
+  <p class="dim">This recomputation happens in-browser from the live slider-driven
+    core call. The same numbers are produced by <code>node bench/verify.mjs</code>.</p>
+</div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
